@@ -1,16 +1,20 @@
 class BidsController < ApplicationController
 
+
   def create
     @bid = Bid.new(bid_params)
+  end
 
     if @bid.save
-      redirect_to @bid.item, notice: 'Your bid has been recorded!'
+      redirect_to bids_path, notice: 'Your bid has been recorded!'
     else
       @item = @bid.item
       render "items/show"
     end
   end
+  def index
 
+  end
 
   private
     # Only allow a trusted parameter "white list" through.
